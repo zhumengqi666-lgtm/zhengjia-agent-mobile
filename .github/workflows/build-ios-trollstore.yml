@@ -1,0 +1,56 @@
+name: Build iOS TrollStore IPA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync iOS project
+        run: npx cap sync ios
+
+      - name: Build unsigned device app
+        run: |
+          xcodebuild \
+            -project ios/App/App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            DEVELOPMENT_TEAM="" \
+            build
+
+      - name: Ad Hoc sign and package IPA
+        run: |
+          APP_PATH="build/DerivedData/Build/Products/Release-iphoneos/App.app"
+          test -d "$APP_PATH"
+          codesign --force --deep --sign - "$APP_PATH"
+          mkdir -p build/ipa/Payload
+          cp -R "$APP_PATH" "build/ipa/Payload/正价智能体.app"
+          cd build/ipa
+          ditto -c -k --sequesterRsrc --keepParent Payload "正价智能体-iOS-TrollStore.ipa"
+          codesign --verify --deep --strict "Payload/正价智能体.app"
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: zhengjia-agent-ios-trollstore
+          path: build/ipa/正价智能体-iOS-TrollStore.ipa
+          if-no-files-found: error
+          retention-days: 30

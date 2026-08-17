@@ -1,0 +1,21 @@
+{
+  "appId": "com.tongai.pricing.agent",
+  "appName": "正价智能体",
+  "webDir": "www",
+  "server": {
+    "url": "http://8.148.64.167/agent?mobileApp=1",
+    "cleartext": true,
+    "allowNavigation": ["8.148.64.167"]
+  },
+  "android": {
+    "appendUserAgent": " TongAiAgentApp/1.0 Android",
+    "backgroundColor": "#ffffff",
+    "allowMixedContent": true
+  },
+  "ios": {
+    "appendUserAgent": " TongAiAgentApp/1.0 iOS",
+    "backgroundColor": "#ffffff",
+    "contentInset": "always",
+    "preferredContentMode": "mobile"
+  }
+}

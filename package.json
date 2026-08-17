@@ -1,0 +1,20 @@
+{
+  "name": "tongai-pricing-agent-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "正价智能体 Android and TrollStore iOS shell",
+  "scripts": {
+    "sync": "npx cap sync",
+    "android": "npx cap open android",
+    "ios": "npx cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.0",
+    "@capacitor/core": "8.5.0",
+    "@capacitor/ios": "8.5.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "3.0.5",
+    "@capacitor/cli": "8.5.0"
+  }
+}
