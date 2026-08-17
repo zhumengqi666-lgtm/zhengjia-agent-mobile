@@ -4,6 +4,7 @@ keystore.properties
 build/
 *.apk
 *.ipa
+assets/*preview*.png
 android/.gradle/
 android/build/
 android/app/build/
