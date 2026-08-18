@@ -3,7 +3,7 @@
   "appName": "正价智能体",
   "webDir": "www",
   "server": {
-    "url": "http://8.148.64.167/agent?mobileApp=1&appBuild=20260818-voice-v3",
+    "url": "http://8.148.64.167/agent?mobileApp=1&appBuild=20260818-mobile-ios-v4",
     "cleartext": true,
     "allowNavigation": ["8.148.64.167"]
   },
@@ -13,7 +13,7 @@
     "allowMixedContent": true
   },
   "ios": {
-    "appendUserAgent": " TongAiAgentApp/1.1 iOS",
+    "appendUserAgent": " TongAiAgentApp/1.2 iOS",
     "backgroundColor": "#ffffff",
     "contentInset": "never",
     "preferredContentMode": "mobile"

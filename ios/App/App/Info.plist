@@ -5,7 +5,12 @@
   <key>CAPACITOR_DEBUG</key>
 	<string>$(CAPACITOR_DEBUG)</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>zh-Hans</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>zh-Hans</string>
+		<string>zh_CN</string>
+	</array>
 	<key>CFBundleDisplayName</key>
         <string>正价智能体</string>
 	<key>CFBundleExecutable</key>
