@@ -3,12 +3,25 @@ import Capacitor
 import WebKit
 
 final class AgentBridgeViewController: CAPBridgeViewController {
+    override func capacitorDidLoad() {
+        super.capacitorDidLoad()
+        bridge?.registerPluginType(AgentSpeechPlugin.self)
+        configureWebView()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        configureWebView()
+    }
+
+    private func configureWebView() {
         guard let webView = findWebView(in: view) else { return }
         webView.scrollView.pinchGestureRecognizer?.isEnabled = false
         webView.scrollView.minimumZoomScale = 1
         webView.scrollView.maximumZoomScale = 1
+        webView.scrollView.contentInsetAdjustmentBehavior = .never
+        webView.scrollView.contentInset = .zero
+        webView.scrollView.scrollIndicatorInsets = .zero
         webView.allowsLinkPreview = false
     }
 

@@ -33,6 +33,8 @@
 	<string>用于拍摄并上传学员沟通截图</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>用于语音输入和上传沟通录音</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>用于将员工按住说话的内容转换为文字</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>用于选择并上传学员沟通图片</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
